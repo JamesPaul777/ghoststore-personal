@@ -1,0 +1,19 @@
+# GhostStore Personal — Python dependencies
+# Install with: pip install -r requirements.txt
+# Requires Python 3.10+ and FFmpeg on system PATH
+
+# Compression
+zstandard>=0.21.0
+
+# Encryption
+cryptography>=41.0.0
+
+# Image processing
+Pillow>=10.0.0
+numpy>=1.24.0
+
+# Web API (optional — only needed if running api.py)
+flask>=3.0.0
+
+# Testing
+pytest>=7.0.0
