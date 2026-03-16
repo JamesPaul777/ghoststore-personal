@@ -12,11 +12,7 @@ Supported input formats: MP4, MOV, AVI, WMV, MKV, PNG, JPG, WEBP, BMP, WAV, MP3,
 
 import os
 import subprocess
-import sys
 import tempfile
-
-# Suppress console window when running as a frozen .exe on Windows
-_SUBPROCESS_FLAGS = subprocess.CREATE_NO_WINDOW if sys.platform == 'win32' else 0
 from pathlib import Path
 
 # Extensions that need video conversion → FFV1 MKV
@@ -73,7 +69,7 @@ def prepare_carrier(carrier_path: str, ffmpeg_path: str = 'ffmpeg') -> tuple[str
             '-loglevel', 'error',
         ]
 
-        result = subprocess.run(cmd, capture_output=True, creationflags=_SUBPROCESS_FLAGS)
+        result = subprocess.run(cmd, capture_output=True)
         if result.returncode != 0:
             stderr = result.stderr.decode(errors='replace').strip()
             os.unlink(tmp_path)
@@ -105,7 +101,7 @@ def prepare_carrier(carrier_path: str, ffmpeg_path: str = 'ffmpeg') -> tuple[str
             '-loglevel', 'error',
         ]
 
-        result = subprocess.run(cmd, capture_output=True, creationflags=_SUBPROCESS_FLAGS)
+        result = subprocess.run(cmd, capture_output=True)
         if result.returncode != 0:
             stderr = result.stderr.decode(errors='replace').strip()
             os.unlink(tmp_path)
