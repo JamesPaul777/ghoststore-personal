@@ -431,6 +431,9 @@ class GhostStoreApp(tk.Tk):
         self._update_savings_calculator()
 
     def _check_capacity(self, carrier_path, payload_bytes):
+        ext = os.path.splitext(carrier_path)[1].lower()
+        if ext in {'.mp4', '.mov', '.avi', '.wmv', '.mkv', '.m4v'}:
+            return True, -1  # skip — capacity only known after FFV1 conversion
         try:
             info = inspect(carrier_path)
             cap = info.get('capacity_bytes', 0)
