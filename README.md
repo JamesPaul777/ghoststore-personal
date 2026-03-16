@@ -10,6 +10,9 @@ The result is data that is invisible, encrypted, and indistinguishable from norm
 
 ---
 
+## Download
+[Download GhostStore for Windows →](https://github.com/JamesPaul777/ghoststore-personal/releases/latest)
+
 ## How it works
 
 ```
